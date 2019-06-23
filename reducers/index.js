@@ -15,7 +15,15 @@ const selectedEmployee = (selectedEmployee=null, action) => {
   return selectedEmployee;
 }
 
+const gitUsers = (gitUsers=[], action) => {
+  if(action.type === 'LOAD_GITUSERS')
+    return action.payload;
+
+  return gitUsers;
+}
+
 export default combineReducers( {
   employees,
-  selectedEmployee
+  selectedEmployee,
+  gitUsers
 })
