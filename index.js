@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 
 import EmpList from './components/employeelist';
 
+import EmpDetail from './components/empdetail';
+
 class App extends Component {
   
   render() {
@@ -15,6 +17,7 @@ class App extends Component {
       <div>
        <h1>React + Redux in action</h1>
        <EmpList />
+       <EmpDetail />
       </div>
     );
   }
