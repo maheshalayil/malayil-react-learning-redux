@@ -1,12 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { selectEmployee } from '../actions';
+import { selectEmployee, loadEmployee, addEmployee } from '../actions';
 
 class EmpList extends React.Component {
-  
+  state = { name: '' };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.name);
+    this.props.add({name: this.state.name});
+    this.setState({name:''});
+  }
+
   render() {
-      return (
+      return (        
         <div>
+          <form onSubmit={this.onSubmit}>
+            <input value={this.state.name} onChange={e=> this.setState({name: e.target.value })} />
+          </form>
           { 
             this.props.employees.map((e) => {
                return <button 
@@ -17,6 +28,10 @@ class EmpList extends React.Component {
           }
         </div>
       );
+  }
+
+  componentDidMount() {
+    this.props.load();
   }
 }
 
@@ -29,5 +44,7 @@ let mapState = (state) =>  {
 }
 
 export default connect(mapState, {
-  select : selectEmployee
+  select : selectEmployee,
+  load: loadEmployee,
+  add: addEmployee
 })(EmpList)

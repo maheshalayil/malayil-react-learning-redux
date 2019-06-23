@@ -1,16 +1,17 @@
 import { combineReducers } from 'redux';
 
-const employees = () => {
-  return [
-    {name:'mahesh'},
-    {name:'praveen'}
-  ]
+const employees = (currentEmployees=[], action) => {
+  if(action.type === 'LOAD_EMP') 
+    return [...currentEmployees];
+  if(action.type === 'ADD_EMP') 
+    return [...currentEmployees, action.payload];
+  return currentEmployees; 
 }
 
 const selectedEmployee = (selectedEmployee=null, action) => {
   if(action.type === 'SELECT_EMP')
     return action.payload;
-    
+
   return selectedEmployee;
 }
 

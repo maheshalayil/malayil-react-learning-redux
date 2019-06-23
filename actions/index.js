@@ -4,3 +4,16 @@ export const selectEmployee = (emp) => {
     payload: emp
   }
 }
+
+export const loadEmployee = () => {
+  return {
+    type: 'LOAD_EMP'
+  }
+}
+
+export const addEmployee = (emp) => {
+  return {
+    type: 'ADD_EMP',
+    payload: emp
+  }
+}
