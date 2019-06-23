@@ -8,7 +8,7 @@ const employees = (currentEmployees=[], action) => {
   return currentEmployees; 
 }
 
-const selectedEmployee = (selectedEmployee={}, action) => {
+const selectedEmployee = (selectedEmployee=null, action) => {
   if(action.type === 'SELECT_EMP')
     return action.payload;
 
