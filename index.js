@@ -8,6 +8,7 @@ import configureStore from './store';
 import EmpList from './components/employeelist';
 import EmpDetail from './components/empdetail';
 import GitUsers from './components/gitusers';
+import Test from './components/gitsearchbyeffect';
 
 
 class App extends Component {
@@ -20,6 +21,9 @@ class App extends Component {
        <EmpDetail />
 
        <GitUsers />
+
+       <hr/>
+       <Test />
       </div>
     );
   }
