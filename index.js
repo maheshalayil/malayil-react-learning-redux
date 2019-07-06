@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './style.css';
-import reducers from './reducers';
 
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk'
+import configureStore from './store';
 
 import EmpList from './components/employeelist';
 import EmpDetail from './components/empdetail';
-
 import GitUsers from './components/gitusers';
 
 
@@ -28,7 +25,7 @@ class App extends Component {
   }
 }
 
-let store = createStore(reducers, applyMiddleware(thunk));
+let store = configureStore();
 
 render(
   <Provider store={store}>
